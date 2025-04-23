@@ -123,7 +123,7 @@ try:
                     st.write(f"From: {route['first_mile']['from']}")
                     st.write(f"To: {route['first_mile']['to']}")
                     st.write(f"Distance: {route['first_mile']['distance_km']:.2f} km")
-                    st.write(f"Time: {route['first_mile']['time_min']:.1f} min")
+                    # st.write(f"Time: {route['first_mile']['time_min']:.1f} min")
                 
                 with col2:
                     st.subheader("Drone Route")
@@ -135,7 +135,7 @@ try:
                     st.write(f"From: {route['last_mile']['from']}")
                     st.write(f"To: {route['last_mile']['to']}")
                     st.write(f"Distance: {route['last_mile']['distance_km']:.2f} km")
-                    st.write(f"Time: {route['last_mile']['time_min']:.1f} min")
+                    # st.write(f"Time: {route['last_mile']['time_min']:.1f} min")
                 
                 # Display total time
                 st.subheader("Total Delivery Time")
