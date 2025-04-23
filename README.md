@@ -1,103 +1,93 @@
 # Drone Delivery System
 
-## Overview
+## Project Overview
 
-This project implements an advanced drone delivery system that optimizes routes for package deliveries in an urban environment. The system handles various constraints including no-fly zones, drone range limitations, and traffic conditions to create efficient delivery routes from multiple depots.
+This project implements an advanced drone delivery route optimization system that plans efficient delivery paths while accounting for various constraints such as no-fly zones, battery/range limitations, and multi-depot operations. The system calculates optimal routes by combining first-mile delivery, drone flight paths between depots, and last-mile delivery to reach the final destination.
 
-## Features
+## Key Features
 
-- **Multi-depot Operations**: Utilizes a central hub and multiple strategic secondary depots
+- **Multi-depot Operations**: Routes packages through a network of strategically placed depots
 - **No-fly Zone Avoidance**: Automatically detects and routes around restricted airspace
-- **Intelligent Route Planning**: Implements various routing strategies including:
-  - Direct delivery
-  - Multi-hop delivery through intermediate depots
-  - Ground courier handoff for restricted zones
-- **Dynamic Fleet Management**: Assigns appropriate drones based on payload, range, and availability
-- **Clustering Algorithm**: Groups orders by proximity to optimize delivery efficiency
-- **Visualization Tools**: Generates interactive maps of delivery routes and restricted zones
+- **Battery Constraint Management**: Plans routes respecting drone battery capacity limits
+- **Visualization**: Interactive maps showing delivery routes, depots, and no-fly zones
+- **Streamlit Web Interface**: User-friendly interface for route planning and visualization
 
-## System Components
+## System Architecture
 
-### Locations and Depots
+The system consists of several key components:
 
-The system manages:
-- A central operations hub
-- Multiple strategically placed secondary depots
-- Customer delivery locations
-- Restricted no-fly zones
+1. **Route Optimization Engine**: Core algorithm that finds optimal paths through depots
+2. **Depot Network**: Strategic placement of depots to maximize coverage
+3. **Visualization Tools**: Interactive maps showing routes and constraints
+4. **Web Interface**: Streamlit application for easy interaction
 
-### Drone Fleet
+## Installation
 
-Each drone in the fleet has:
-- Unique identification (ID and name)
-- Home depot assignment
-- Maximum range and payload capacity
-- Current status and location tracking
+### Prerequisites
 
-### Route Types
+- Python 3.8 or higher
+- uv package manager
 
-The system supports multiple delivery strategies:
-- **Direct Delivery**: Single flight from depot to destination
-- **Multi-hop Delivery**: Routes through intermediate depots for longer distances
-- **Depot Transfer**: Handoff to ground couriers for restricted zone deliveries
+### Setup Instructions
 
-## Algorithms
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/yourusername/drone-delivery-system.git
+   cd drone-delivery-system
+   ```
 
-The system employs several algorithms:
-- **Dijkstra's Algorithm**: Finds shortest paths between locations
-- **K-means Clustering**: Groups orders by geographic proximity
-- **Greedy Sequence Optimization**: Improves route efficiency
+2. **Create and activate a virtual environment using uv**:
+   ```bash
+   uv venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   ```
 
-## Performance Metrics
-
-The system tracks:
-- Total and average delivery distances
-- Drone utilization rates
-- Delivery success rates
-- Depot utilization statistics
-- Route type distribution
-
-## Output Files
-
-The system generates:
-- `drone_delivery_routes.html`: Interactive map visualization
-- `optimized_routes.csv`: Detailed route information
-- `drone_fleet_status.csv`: Current status of all drones
-- `route_types_distribution.png`: Chart showing distribution of route types
+3. **Install dependencies using uv**:
+   ```bash
+   uv pip install -r requirements.txt
+   ```
 
 ## Usage
+### Streamlit Web Interface
 
-1. Load location, order, and distance data
-2. Configure depot locations and no-fly zones
-3. Generate the drone fleet
-4. Run the route optimization algorithm
-5. Visualize and analyze the results
+For a more interactive experience, run the Streamlit application:
+
+```bash
+uv run streamlit run app.py
+```
+
+This will start a local web server (typically at http://localhost:8501) where you can:
+
+1. Adjust battery capacity constraints
+2. Upload custom location and distance data
+3. Select specific sender and delivery locations
+4. Calculate and visualize optimal routes
+5. Download the generated map as an HTML file
+
+## Project Structure
+
+```
+drone-delivery-system/
+├── app.py                  # Streamlit web interface
+├── main.py                 # Command line interface
+├── requirements.txt        # Python dependencies
+├── .gitignore              # Git ignore file
+├── README.md               # Project documentation
+└── src/
+    └── DroneDeliveryOptimizer.py  # Core route optimization logic
+```
+
+## Configuration Options
+
+The route optimizer is configured with the following parameters:
+
+- **Battery Capacity**: Flight time in minutes (default: 50)
+- **No-fly Zones**: Restricted areas defined by center coordinates and radius
+- **Depot Locations**: Random placement of depots for routing and delivery management
+
+These parameters can be adjusted in the web interface(some) or by modifying the initialization in `main.py`.
 
 ## Dependencies
 
-- pandas: Data manipulation
-- numpy: Numerical operations
-- matplotlib: Data visualization
-- scipy: Spatial calculations
-- networkx: Graph operations
-- folium: Map visualization
-- scikit-learn: Clustering algorithms
-
-## Example Output
-
-The system provides comprehensive summary statistics:
-- Total orders processed
-- Assignment success rate
-- Distance metrics
-- Drone utilization
-- Depot distribution
-
-## Future Enhancements
-
-Potential improvements include:
-- Real-time traffic integration
-- Weather condition adaptation
-- Battery optimization algorithms
-- Dynamic rebalancing of drone fleet
-- Machine learning for demand prediction
+All python dependencies listed under requirements.txt.
 
