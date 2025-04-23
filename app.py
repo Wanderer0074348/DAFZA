@@ -6,18 +6,13 @@ from src.DroneDeliveryOptimizer import DroneDeliveryRouter
 
 # Set page configuration
 st.set_page_config(
-    page_title="Drone Delivery Route Optimizer",
+    page_title="DCubed",
     page_icon="✈️",
     layout="wide"
 )
 
 # App title and description
-st.title("Drone Delivery Route Optimizer")
-st.markdown("""
-This application optimizes drone delivery routes through a network of depots, 
-considering battery constraints and no-fly zones. The drones can only fly between depots,
-with first and last mile delivery handled separately.
-""")
+st.title("DCubed")
 
 # Sidebar for configuration
 st.sidebar.header("Configuration")
