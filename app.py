@@ -37,20 +37,20 @@ uploaded_locations = st.sidebar.file_uploader("Upload Locations CSV", type="csv"
 uploaded_distances = st.sidebar.file_uploader("Upload Distance Matrix CSV", type="csv")
 
 # Use default files if no files are uploaded
-locations_file = 'delivery_locations.csv'
-distance_matrix_file = 'distance_traffic_matrix.csv'
+locations_file = 'data/delivery_locations.csv'
+distance_matrix_file = 'data/distance_traffic_matrix.csv'
 
 if uploaded_locations is not None:
     # Save the uploaded file temporarily
-    with open("temp_locations.csv", "wb") as f:
+    with open("data/temp_locations.csv", "wb") as f:
         f.write(uploaded_locations.getbuffer())
-    locations_file = "temp_locations.csv"
+    locations_file = "data/temp_locations.csv"
 
 if uploaded_distances is not None:
     # Save the uploaded file temporarily
-    with open("temp_distances.csv", "wb") as f:
+    with open("data/temp_distances.csv", "wb") as f:
         f.write(uploaded_distances.getbuffer())
-    distance_matrix_file = "temp_distances.csv"
+    distance_matrix_file = "data/temp_distances.csv"
 
 # Initialize the router
 @st.cache_data
