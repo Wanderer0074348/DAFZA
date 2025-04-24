@@ -1,4 +1,4 @@
-# DCubed
+# D-Cube
 
 ## Project Overview
 
