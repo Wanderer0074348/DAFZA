@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 # App title and description
-st.title("DCubed")
+st.title("DCube")
 
 # Sidebar for configuration
 st.sidebar.header("Configuration")
@@ -158,7 +158,3 @@ try:
 except Exception as e:
     st.error(f"Error initializing the router: {str(e)}")
     st.write("Please check that the data files are in the correct format and location.")
-
-# Footer
-st.markdown("---")
-st.markdown("Drone Delivery Route Optimizer | Created with Streamlit")
